@@ -180,7 +180,7 @@ end
 
 % ------------------------------------------USO DEL ALGORITMO-------------------------------------
 % x = [2,4,1,6,7,9]; y = [2,1,5,7,3,8]; 
-& interp = NevilleInterp(x,y,4); El valor m_in representa el grado del polinomio y los puntos a usar en la interpolacion si m = # numero de puntos interpolación global si m < # num puntos es interpolacion local
+% interp = NevilleInterp(x,y,4); El valor m_in representa el grado del polinomio y los puntos a usar en la interpolacion si m = # numero de puntos interpolación global si m < # num puntos es interpolacion local
 % [val, interp] = interp.interp(12.4); Ese 12.4 es el valor a interpolar
 % disp(val); valor al que correponde la interpolacion del punto definido como 12.4, la interpolacion va tener mucho error si el punto esta afuera del rango de puntos, si se usan muchos puntos se puede causar el fenomenode Runge donde tambien se peride percisión por "sobreestimar o sobreinterpolar puntos"
 % disp(interp.dy) ultima correcion añadida/estimación , usada para caluclar el error realtivo dy/val en abs val, ese valor represneta el error de la estimacion con respecto al val, mientras mas grande peor la estimacion del valor interpolador en ese punto
