@@ -24,6 +24,8 @@ function p = biseccion(f, a, b, TOL, N0)
         % Paso 4: Verificar la condicion de parada
         if FP == 0 || Er < TOL
             fprintf('La raíz aproximada es: %.5f\n', p)
+            fprintf('Número de iteraciones: %d\n', i)
+
             return
         end
         % Paso 5: Incrementar el contador de iteraciones
