@@ -57,5 +57,16 @@ legend('Spline cúbico', 'Puntos iniciales');
 grid on;
 hold off;
 
+----Cuando hay datos repetidos y tocar hacer limpieza: ----
+x = [22.8 22.8 22.8 20.6 13.9 11.7 11.1 11.1];
+y = [0    2.3   4.9   9.1  13.7 18.3 22.9 27.2];
+
+[x_clean, idx] = unique(x, 'stable'); % quita repetidos, conserva orden
+y_clean = y(idx);
+
+% Ahora x_clean y y_clean ya no tienen duplicados
+disp(x_clean)
+disp(y_clean)
+
 
 %}
