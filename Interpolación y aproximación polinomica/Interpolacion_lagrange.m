@@ -70,3 +70,27 @@ classdef LagrangeInterp < handle
         end
     end
 end
+
+%{
+-------------- USO----------------------------------------
+% Your data points
+xData = [-1 0 1];
+yData = [1 0 1];
+
+% Create interpolator object
+interp = LagrangeInterp(xData, yData);
+
+% Evaluate the interpolating polynomial at some fine grid
+xx = linspace(-1,1,200);
+yy = interp.lagrange(xx);
+
+% Plot
+figure;
+plot(xData, yData, 'ro', 'MarkerSize', 8, 'LineWidth', 2); % original points
+hold on;
+plot(xx, yy, 'b-', 'LineWidth', 1.5); % interpolating polynomial
+grid on;
+title('Lagrange Interpolation');
+legend('Data points','Interpolating polynomial');
+
+%}
