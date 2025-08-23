@@ -32,3 +32,30 @@ function val = evalCubicSpline(xx, xs, as, bs, cs, ds)
         val(i) = as(j) + bs(j)*dx + cs(j)*dx.^2 + ds(j)*dx.^3;
     end
 end
+
+%{ 
+----------USO---------------------------------
+
+% 1. Define tus puntos
+x = [0 1 2 3 4];       % <-- aquí van tus puntos en X
+y = [0 1 0 -1 0];      % <-- aquí van tus puntos en Y
+
+% 2. Crea el spline con tu función
+newspline = createCubicSpline(x, y);
+
+% 3. Define un rango más fino para evaluar el spline
+xx = linspace(min(x), max(x), 200);
+
+% 4. Evalúa el spline
+yy = newspline(xx);
+
+% 5. Grafica los resultados
+plot(xx, yy, 'b-', 'LineWidth', 1.5);   % spline en azul
+hold on;
+plot(x, y, 'ro', 'MarkerSize', 8, 'MarkerFaceColor', 'r'); % puntos originales en rojo
+legend('Spline cúbico', 'Puntos iniciales');
+grid on;
+hold off;
+
+
+%}
