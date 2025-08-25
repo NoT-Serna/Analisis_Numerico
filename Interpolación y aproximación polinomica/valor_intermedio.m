@@ -42,7 +42,7 @@ function yi = lagrange_interp(x, y, x0)
         yi = yi + y(i) * L;
     end
 end
-%}
+%{
 ------------USO-----------------
 Ej: x= 1...10 f(x) = ln(x)
 x = 1:10;
@@ -69,4 +69,4 @@ fprintf('Valor interpolado = %.6f\n', yi);
 fprintf('Error absoluto    = %.6e\n', Ea);
 fprintf('Error relativo    = %.6e (%.6f %%)\n', Er, 100*Er);
 
-%{
+%}
