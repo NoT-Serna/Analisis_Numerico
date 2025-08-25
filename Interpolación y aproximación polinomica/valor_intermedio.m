@@ -42,3 +42,31 @@ function yi = lagrange_interp(x, y, x0)
         yi = yi + y(i) * L;
     end
 end
+%}
+------------USO-----------------
+Ej: x= 1...10 f(x) = ln(x)
+x = 1:10;
+y = log(x);
+
+x0 = 6.4;
+yi = interm_value(x, y, x0);
+y_real = log(x0);
+
+Ea = abs(y_real - yi);               % error absoluto
+
+den = abs(y_real);
+if den == 0
+    Er = NaN;                        % no definido (f(x0)=0)
+    % Alternativa: Er = Ea / max(den, 1e-12);
+    % Alternativa: Er = Ea / max(abs(yi), 1e-12);  % relativo al aproximado
+else
+    Er = Ea / den;                   % error relativo
+end
+
+fprintf('x0 = %.2f\n', x0);
+fprintf('Valor real        = %.6f\n', y_real);
+fprintf('Valor interpolado = %.6f\n', yi);
+fprintf('Error absoluto    = %.6e\n', Ea);
+fprintf('Error relativo    = %.6e (%.6f %%)\n', Er, 100*Er);
+
+%{
