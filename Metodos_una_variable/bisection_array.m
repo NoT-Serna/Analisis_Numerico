@@ -44,7 +44,7 @@ function p = biseccion_array(x_data, y_data, a, b, TOL, N0)
 end
 
 
-&{
+&}
 ----------------USO----------------------
 x = linspace(0, 10, 100);
 y = sin(x); % f(x) = sin(x)
@@ -57,4 +57,4 @@ N0 = 50;
 p = biseccion_array(x, y, a, b, TOL, N0);
 
 
-&}
+&{
