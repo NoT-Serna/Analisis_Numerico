@@ -65,4 +65,9 @@ f = @(t,y) -2*t.*y;   % EDO: y' = -2ty
 
 plot(t,y,'o-')
 xlabel('t'), ylabel('y')
+
+% Comparar contra la solución exacta
+y_exact = exp(-t.^2);  % ejemplo para y'=-2ty, y(0)=1
+error_real = abs(y - y_exact);
+
 %}
