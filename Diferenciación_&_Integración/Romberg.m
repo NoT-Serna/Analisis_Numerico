@@ -28,3 +28,10 @@ function R = romberg(f,a,b,n)
         end
     end
 end
+
+%{
+R = romberg(f,a,b,5);
+disp(R);
+fprintf("Aproximación Romberg = %.10f\n", R(5,5));
+
+&}
