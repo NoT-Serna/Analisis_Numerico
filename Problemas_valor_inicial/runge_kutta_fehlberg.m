@@ -57,3 +57,12 @@ function [t, y] = rkf45(f, tspan, y0, h0, tol)
         h = h * min(2, max(0.1, s));
     end
 end
+
+%}
+--Uso---
+f = @(t,y) -2*t.*y;   % EDO: y' = -2ty
+[t,y] = rkf45(f,[0 2],1,0.1,1e-6);
+
+plot(t,y,'o-')
+xlabel('t'), ylabel('y')
+%{
