@@ -1,0 +1,40 @@
+% Función para descomposición QR usando transformaciones de Householder
+% Esta función toma una matriz A como entrada y devuelve las matrices Q y R
+% tales que A = Q * R, donde Q es una matriz ortogonal y R es una matriz triangular superior.
+
+function [Q, R] = qr_householder(A)
+    n = size(A, 1); % Obtener el número de filas de A
+    Q = eye(n);     % Inicializar Q como la matriz identidad
+    R = A;          % Inicializar R como A
+
+    for k = 1:n-1
+        % Definimos el vector x
+        x = R(k:end, k);
+        disp(['Iteración ', num2str(k), ':']);
+        disp('Vector x:');
+        disp(x);
+
+        % Calculamos el vector de rotación de Householder
+        e1 = zeros(length(x), 1);
+        e1(1) = norm(x) * sign(x(1));
+        u = x + e1;
+        u = u / norm(u); % Normalizar el vector u
+        disp('Vector u:');
+        disp(u);
+
+        % Construimos la matriz de Householder H
+        Hk = eye(n);
+        Hk(k:end, k:end) = eye(length(x)) - 2 * (u * u');
+        disp('Matriz de Householder Hk:');
+        disp(Hk);
+
+        % Actualizamos R y Q
+        R = Hk * R;     % Aplicar la transformación a R
+        Q = Q * Hk';    % Aplicar la transformación a Q
+        
+        disp('Matriz R actualizada:');
+        disp(R);
+        disp('Matriz Q actualizada:');
+        disp(Q);
+    end
+end
